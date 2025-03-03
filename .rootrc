@@ -1,9 +1,8 @@
 ################## Some common synonyms from Windows/DOS to make it easier ##################################
-alias dir='ls -lhaF --time-style=long-iso --group-directories-first -t'
-test -f ~/.cargo/bin/lsd && alias dir='lsd -A -F -l --group-dirs first --total-size --date relative'
-test -f /bin/eza && alias dir='eza -la --group-directories-first --time-style=long-iso --total-size --icons=always'
+alias dir='ls -lhAF --time-style=long-iso --group-directories-first -t'
+test -f ~/.cargo/bin/lsd && alias dir='lsd -A -F -l --group-dirs first --date relative'
+test -f /bin/eza && alias dir='eza -lA --group-directories-first --time-style=long-iso --icons=always'
 alias ips='ip -o -c -br address'
-alias ip='ip -c'
 alias link='ip -o -c -br link'
 
 ##### And these are for Linux / Windows Switchers #####
@@ -11,12 +10,17 @@ alias md='mkdir';alias rd='rmdir'
 alias del='rm'
 alias cd..='cd ..'
 alias ipconfig='ifconfig'
+alias path='echo $PATH'
 
+test -d ~/.cargo/bin && export PATH=$PATH:$HOME/.cargo/bin
+
+#### Constants ####
+export HISTTIMEFORMAT="%d/%m/%y %T "
 ##### RED prompt for root #####
-export PS1='\[\033[0;33m\]\t \[\033[91m\]\u\[\033[37m\]@\[\033[95m\]\h\[\033[00m\]:\[\033[36m\]\w\[\033[00m\]\$> '
+export PS1='\[\033[0;33m\]\t \[\033[31m\]\u\[\033[35m\]@\[\033[95m\]\h\[\033[35m\]:\[\033[36m\]\w\[\033[00m\]\$> '
 
-##### To avoid listing snap-partitions on Ubuntu #####
-alias lsblk='lsblk -e7'
+##### To avoid listing snap,ram and loop-partitions #####
+alias lsblk='lsblk –e1,7,31'
 alias df='df -h -x squashfs --total'
 
 ###### These are mostly for WSL on Windows #######
