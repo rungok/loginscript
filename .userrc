@@ -1,10 +1,9 @@
 ################## Some common synonyms from Windows/DOS to make it easier ##################################
-alias dir='ls -lhaF --time-style=long-iso --group-directories-first -t'
+alias dir='ls -lhAF --time-style=long-iso --group-directories-first -t'
 test -f ~/.cargo/bin/lsd && alias dir='lsd -A -F -l --group-dirs first --total-size --date relative'
-test -f /bin/eza && alias dir='eza -la --group-directories-first --time-style=long-iso --total-size --icons=always'
+test -f /bin/eza && alias dir='eza -lA --group-directories-first --time-style=long-iso --total-size --icons=always'
 alias ips='ip -o -c -br address'
-alias ip='ip -c'
-alias link='ip -o -c -br link'
+alias lnk='ip -o -c -br link'
 
 ##### And these are for Linux / Windows Switchers #####
 alias md='mkdir';alias rd='rmdir'
